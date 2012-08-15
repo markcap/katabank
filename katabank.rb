@@ -26,8 +26,14 @@ class Marcel
           final_code_string += get_number(number_decode_string)
         end
     
-        puts final_code_string
-        puts account_checksum(final_code_string)
+        #checking to see if number is illegible or invalid
+        if final_code_string.include?("?")
+          puts final_code_string + " ILL"
+        elsif !account_checksum(final_code_string)
+          puts final_code_string + " ERR"
+        else
+          puts final_code_string
+        end
         
         #move on to next entry
         line_index += 4
@@ -60,7 +66,7 @@ class Marcel
     when string == " _ | ||_|"
       '0'
     else 
-      nil
+      '?'
     end
     
   end
@@ -80,11 +86,8 @@ class Marcel
       multiplier += 1
     end
     
-    if (account_total % 11) == 0
-      "Valid Account"
-    else
-      "Invalid Account"
-    end  
+    (account_total % 11) == 0
+ 
   end
   
 end
