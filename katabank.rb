@@ -1,4 +1,4 @@
-class Marcel
+class Katabank
 
   def print_number
 
@@ -92,5 +92,5 @@ class Marcel
   
 end
 
-whatever = Marcel.new
-whatever.print_number
+# katabank = Katabank.new
+# katabank.print_number
